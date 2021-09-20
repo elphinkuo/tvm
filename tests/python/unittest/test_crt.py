@@ -207,6 +207,8 @@ def test_platform_timer():
     B = tvm.te.compute(A.shape, lambda i: tvm.te.exp(A[i]), name="B")
     s = tvm.te.create_schedule(B.op)
 
+    assert False, "fail this test"
+
     with _make_sess_from_op(temp_dir, "myexpf", s, [A, B]) as sess:
         A_data = tvm.nd.array(np.array([2.0, 3.0], dtype="float32"), device=sess.device)
         B_data = tvm.nd.array(np.array([2.0, 3.0], dtype="float32"), device=sess.device)
